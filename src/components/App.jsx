@@ -43,12 +43,18 @@ function App() {
     );
   };
 
+  const totalNumberOfItems = items.length;
+  const totalCompletedItems = items.filter((item) => item.packed).length;
+
   return (
     <>
       <BackgroundHeading />
 
       <main>
-        <Header items={items} />
+        <Header
+          totalNumberOfItems={totalNumberOfItems}
+          totalCompletedItems={totalCompletedItems}
+        />
         <ItemList
           items={items}
           onDeleteItem={handleDeleteItem}

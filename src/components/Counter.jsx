@@ -1,9 +1,7 @@
-export default function Counter({ items }) {
-  const completeItems = items.filter((item) => item.packed);
-
+export default function Counter({ totalNumberOfItems, totalCompletedItems }) {
   return (
     <p>
-      <b>{completeItems.length}</b> / {items.length} items packed
+      <b>{totalCompletedItems}</b> / {totalNumberOfItems} items packed
     </p>
   );
 }
