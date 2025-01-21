@@ -18,8 +18,8 @@ function Item({ item, onDeleteItem, onToggleItem }) {
     <li className="item" onClick={() => onToggleItem(item.id)}>
       <label onClick={() => onToggleItem(item.id)}>
         <input
-          onClick={() => onToggleItem(item.id)}
           checked={item.packed}
+          onChange={() => onToggleItem(item.id)}
           type="checkbox"
         />{" "}
         {item.name}
