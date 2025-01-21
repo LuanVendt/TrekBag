@@ -3,7 +3,7 @@ import ButtonGroup from "./ButtonGroup";
 
 export default function Sidebar() {
   return (
-    <div>
+    <div className="sidebar">
       <AddItemForm />
       <ButtonGroup />
     </div>
