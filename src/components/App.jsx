@@ -23,6 +23,18 @@ function App() {
     setItems((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const handleMarkAllAsComplete = () => {
+    setItems((prev) => prev.map((item) => ({ ...item, packed: true })));
+  };
+
+  const handleMarkAllAsIncomplete = () => {
+    setItems((prev) => prev.map((item) => ({ ...item, packed: false })));
+  };
+
+  const handleDeleteAllItems = () => setItems([]);
+
+  const handleRestToInitial = () => setItems(initialItems);
+
   return (
     <>
       <BackgroundHeading />
@@ -30,7 +42,13 @@ function App() {
       <main>
         <Header />
         <ItemList items={items} onDeleteItem={handleDeleteItem} />
-        <Sidebar handleAddItem={handleAddItem} />
+        <Sidebar
+          handleAddItem={handleAddItem}
+          handleDeleteAllItems={handleDeleteAllItems}
+          handleMarkAllAsComplete={handleMarkAllAsComplete}
+          handleMarkAllAsIncomplete={handleMarkAllAsIncomplete}
+          handleRestToInitial={handleRestToInitial}
+        />
       </main>
 
       <Footer />
