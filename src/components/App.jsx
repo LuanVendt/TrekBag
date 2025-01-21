@@ -35,13 +35,25 @@ function App() {
 
   const handleDeleteAllItems = () => setItems([]);
 
+  const handleToggleItem = (id) => {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  };
+
   return (
     <>
       <BackgroundHeading />
 
       <main>
         <Header items={items} />
-        <ItemList items={items} onDeleteItem={handleDeleteItem} />
+        <ItemList
+          items={items}
+          onDeleteItem={handleDeleteItem}
+          onToggleItem={handleToggleItem}
+        />
         <Sidebar
           handleAddItem={handleAddItem}
           handleMarkAllAsComplete={handleMarkAllAsComplete}
