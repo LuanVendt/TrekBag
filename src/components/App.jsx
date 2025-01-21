@@ -31,9 +31,9 @@ function App() {
     setItems((prev) => prev.map((item) => ({ ...item, packed: false })));
   };
 
-  const handleDeleteAllItems = () => setItems([]);
-
   const handleRestToInitial = () => setItems(initialItems);
+
+  const handleDeleteAllItems = () => setItems([]);
 
   return (
     <>
@@ -44,10 +44,10 @@ function App() {
         <ItemList items={items} onDeleteItem={handleDeleteItem} />
         <Sidebar
           handleAddItem={handleAddItem}
-          handleDeleteAllItems={handleDeleteAllItems}
           handleMarkAllAsComplete={handleMarkAllAsComplete}
           handleMarkAllAsIncomplete={handleMarkAllAsIncomplete}
           handleRestToInitial={handleRestToInitial}
+          handleDeleteAllItems={handleDeleteAllItems}
         />
       </main>
 
