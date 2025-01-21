@@ -15,12 +15,7 @@ export default function ItemList({ items, onDeleteItem, onToggleItem }) {
 
 function Item({ item, onDeleteItem, onToggleItem }) {
   return (
-    <li
-      className="item"
-      onClick={() => {
-        item.checked = true;
-      }}
-    >
+    <li className="item" onClick={() => onToggleItem(item.id)}>
       <label onClick={() => onToggleItem(item.id)}>
         <input
           onClick={() => onToggleItem(item.id)}
@@ -30,13 +25,7 @@ function Item({ item, onDeleteItem, onToggleItem }) {
         {item.name}
       </label>
 
-      <button
-        onClick={() => {
-          onDeleteItem(item.id);
-        }}
-      >
-        ❌
-      </button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }
