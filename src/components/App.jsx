@@ -40,7 +40,7 @@ function App() {
       <BackgroundHeading />
 
       <main>
-        <Header />
+        <Header items={items} />
         <ItemList items={items} onDeleteItem={handleDeleteItem} />
         <Sidebar
           handleAddItem={handleAddItem}
