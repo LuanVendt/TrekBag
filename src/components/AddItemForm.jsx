@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
+import { useItemsContext } from "../lib/hooks";
 import Button from "./Button";
 
-export default function AddItemForm({ ondAddItem }) {
+export default function AddItemForm() {
   const [itemText, setItemText] = useState("");
   const inputRef = useRef();
+  const { handleAddItem } = useItemsContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +16,7 @@ export default function AddItemForm({ ondAddItem }) {
       return;
     }
 
-    ondAddItem(itemText);
+    handleAddItem(itemText);
 
     setItemText("");
 

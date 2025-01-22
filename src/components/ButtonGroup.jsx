@@ -1,16 +1,19 @@
+import { useItemsContext } from "../lib/hooks";
 import Button from "./Button";
 
-export default function ButtonGroup({
-  onDeleteAllItems,
-  onMarkAllAsComplete,
-  onMarkAllAsIncomplete,
-  onRestToInitial,
-}) {
+export default function ButtonGroup() {
+  const {
+    handleMarkAllAsComplete,
+    handleMarkAllAsIncomplete,
+    handleRestToInitial,
+    handleDeleteAllItems,
+  } = useItemsContext();
+
   const secondaryButons = [
-    { title: "Mark all as complete", onClick: onMarkAllAsComplete },
-    { title: "Mark all as incomplete", onClick: onMarkAllAsIncomplete },
-    { title: "Reset to initial", onClick: onRestToInitial },
-    { title: "Remove all items", onClick: onDeleteAllItems },
+    { title: "Mark all as complete", onClick: handleMarkAllAsComplete },
+    { title: "Mark all as incomplete", onClick: handleMarkAllAsIncomplete },
+    { title: "Reset to initial", onClick: handleRestToInitial },
+    { title: "Remove all items", onClick: handleDeleteAllItems },
   ];
 
   return (
